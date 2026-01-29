@@ -1,0 +1,21 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3309/guest_registration?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Europe/Tallinn
+    username: app
+    password: app
+
+  sql:
+    init:
+      mode: never
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+
+  web:
+    resources:
+      static-locations: classpath:/static/
