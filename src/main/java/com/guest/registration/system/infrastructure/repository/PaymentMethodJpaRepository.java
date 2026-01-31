@@ -9,4 +9,7 @@ import java.util.Optional;
 public interface PaymentMethodJpaRepository extends JpaRepository<PaymentMethodEntity, Long> {
   List<PaymentMethodEntity> findByActiveTrueOrderByDisplayNameAsc();
   Optional<PaymentMethodEntity> findByCode(String code);
+
+  Optional<PaymentMethodEntity> findByCodeAndActiveTrue(String code);
 }
+

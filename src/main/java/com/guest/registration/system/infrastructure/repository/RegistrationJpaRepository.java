@@ -10,4 +10,7 @@ public interface RegistrationJpaRepository extends JpaRepository<RegistrationEnt
   List<RegistrationEntity> findByEvent_Id(Long eventId);
   Optional<RegistrationEntity> findByEvent_IdAndParticipant_Id(Long eventId, Long participantId);
   long countByEvent_Id(Long eventId);
+
+  boolean existsByEvent_IdAndParticipant_Id(Long eventId, Long participantId);
+  void deleteByEvent_IdAndParticipant_Id(Long eventId, Long participantId);
 }

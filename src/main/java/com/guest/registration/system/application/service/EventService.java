@@ -29,6 +29,16 @@ public class EventService {
   }
 
   @Transactional
+  public EventDTO getEvent(Long eventId) {
+    EventEntity event = eventRepo.findById(eventId)
+        .orElseThrow(() -> new IllegalArgumentException("Event not found: " + eventId));
+
+    long count = registrationRepo.countByEvent_Id(eventId);
+    return EventDTOMapper.toDto(event, count, clock);
+  }
+
+
+  @Transactional
   public Long createEvent(EventDTO dto) {
     if (dto.getEventDateTime() == null) {
       throw new IllegalArgumentException("Event time is required");

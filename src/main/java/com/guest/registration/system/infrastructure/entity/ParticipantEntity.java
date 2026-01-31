@@ -1,5 +1,7 @@
 package com.guest.registration.system.infrastructure.entity;
 
+import com.guest.registration.system.domain.model.ParticipantType;
+
 import jakarta.persistence.*;
 
 /**
@@ -16,7 +18,7 @@ public class ParticipantEntity {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private ParticipantTypeEntity type;
+    private ParticipantType type;
 
     @OneToOne(
         mappedBy = "participant",
@@ -39,8 +41,8 @@ public class ParticipantEntity {
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
-    public ParticipantTypeEntity getType() { return type; }
-    public void setType(ParticipantTypeEntity type) { this.type = type; }
+    public ParticipantType getType() { return type; }
+    public void setType(ParticipantType type) { this.type = type; }
 
     public PrivateParticipantEntity getPrivateDetails() { return privateDetails; }
 

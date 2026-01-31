@@ -25,6 +25,11 @@ public class EventController {
     return eventService.listEvents();
   }
 
+  @GetMapping("/{id}")
+  public EventDTO getEvent(@PathVariable Long id) {
+    return eventService.getEvent(id);
+  }
+
   // Eventi lisamine
   @PostMapping
   public ResponseEntity<Void> createEvent(@Valid @RequestBody EventDTO dto) {
